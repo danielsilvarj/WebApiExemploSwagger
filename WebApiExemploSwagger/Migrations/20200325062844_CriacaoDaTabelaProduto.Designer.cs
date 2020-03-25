@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApiExemploSwagger.Data;
 
 namespace WebApiExemploSwagger.Migrations
 {
     [DbContext(typeof(WebApiExemploSwaggerContext))]
-    partial class WebApiExemploSwaggerContextModelSnapshot : ModelSnapshot
+    [Migration("20200325062844_CriacaoDaTabelaProduto")]
+    partial class CriacaoDaTabelaProduto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -15,5 +15,7 @@ namespace WebApiExemploSwagger.Data
         }
 
         public DbSet<WebApiExemploSwagger.Models.Cliente> Cliente { get; set; }
+
+        public DbSet<WebApiExemploSwagger.Models.Produto> Produto { get; set; }
     }
 }

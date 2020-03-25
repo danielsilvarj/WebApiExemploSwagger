@@ -12,6 +12,9 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using WebApiExemploSwagger.Data;
 using Swashbuckle.AspNetCore.Swagger;
+using WebApiExemploSwagger.Models;
+using WebApiExemploSwagger.Response;
+using AutoMapper;
 
 namespace WebApiExemploSwagger
 {
@@ -33,6 +36,7 @@ namespace WebApiExemploSwagger
                     options.UseSqlServer(Configuration.GetConnectionString("WebApiExemploSwaggerContext")));
 
 
+            #region Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
@@ -48,6 +52,17 @@ namespace WebApiExemploSwagger
                         }
                     });
             });
+            #endregion
+
+            #region AutoMapper
+            var configAutoMapper = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Produto, ProdutoCreateResponse>();
+            });
+            IMapper mapper = configAutoMapper.CreateMapper();
+            services.AddSingleton(mapper);
+            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
